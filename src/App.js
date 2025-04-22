@@ -47,6 +47,13 @@ function App() {
             >
               Get All User Objects
             </Button>
+
+            <Button
+              style={{ width: 256 }}
+              onClick={() => document.getElementById('').scrollIntoView({ behavior: 'smooth' })}
+            >
+              GPO Extract
+            </Button>
           </div>
           <section id="purged-and-reprovision">
             <PurgedAndReprovision />

@@ -3,28 +3,28 @@ import React from 'react';
 import styled from 'styled-components';
 import { Frame, Button } from 'react95';
 
-// Styled PowerShell block with green comments and yellow code
+// Styled PowerShell block
 const Terminal = styled.div`
   background-color: #000;
   font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  padding: 1rem;
+  font-size: 0.85rem;
+  padding: 0.75rem 1rem;
   border: 2px inset #ccc;
-  margin: 1rem 0;
+  margin: 0.75rem 0;
   white-space: pre-wrap;
 
   .comment {
-    color: #32cd32; /* lime green */
-    margin-bottom: 0.5rem;
+    color: #32cd32;
+    margin-bottom: 0.4rem;
   }
 
   .code {
-    color: #fef9c3; /* light yellow */
+    color: #fef9c3;
   }
 `;
 
 const StyledHeader = styled.header`
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   text-align: left;
 
   h1 {
@@ -94,7 +94,7 @@ Set-ADUser -Identity "user@domain.com" -Clear cloudFiltered
       code: `
 Write-Host "User purged and reprovisioned successfully!" -ForegroundColor Green
       `.trim(),
-    }
+    },
   ];
 
   const handleCopy = () => {
@@ -104,7 +104,7 @@ Write-Host "User purged and reprovisioned successfully!" -ForegroundColor Green
   };
 
   return (
-    <Frame variant="well" style={{ padding: '1.5rem', marginBottom: '2rem' }}>
+    <Frame variant="well" style={{ padding: '1rem 1.25rem', marginBottom: '1.5rem', width: '100%', boxSizing: 'border-box' }}>
       <StyledHeader>
         <h1>🔄 Azure Purged & Reprovision Script with Comment Logging</h1>
         <p><small>Posted by Baldwin | April 18, 2025</small></p>

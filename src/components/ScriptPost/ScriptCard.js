@@ -9,8 +9,8 @@ const ScriptCard = ({ children }) => {
                 borderRadius: '6px',
                 border: '1px solid #999',
                 boxShadow: 'inset 0 0 0 2px #b0b0b0',
-                margin: '0 16px',         // adds side spacing so content doesn’t hit edges
-                width: 'calc(100% - 32px)' // accounts for margin
+                width: '100%', // take up full width of parent
+                boxSizing: 'border-box', // include padding in total width
             }}
         >
             {children}

@@ -15,8 +15,13 @@ function App() {
         <StartBar />
       </div>
 
+
       {/* Header */}
-      <div>
+      <div style={{
+        margin: '0 16px',
+        width: 'calc(100% - 32px)',
+        boxSizing: 'border-box',
+      }}>
         <Header />
       </div>
 

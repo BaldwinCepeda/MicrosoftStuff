@@ -5,13 +5,16 @@ import StartBar from './components/StartBar';
 import Header from './components/Header';
 import PurgedAndReprovision from './components/ScriptPost/posts/PurgedAndReprovision';
 import GetAllUserObjects from './components/ScriptPost/posts/GetAllUserObjects';
+import ADGroupDups from './components/ScriptPost/posts/ADGroupDups';
 import ScriptCard from './components/ScriptPost/ScriptCard';
+import DataTables from './components/ScriptPost/posts/DataTables';
 
 function App() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       {/* Start Bar */}
-      <div>
+      <div style={{ position: 'relative', display: 'inline-block' }}>
+
         <StartBar />
       </div>
 
@@ -78,6 +81,13 @@ function App() {
           gap: '24px',
         }}
       >
+
+
+        <div id="get-all-user-objects">
+          <ScriptCard>
+            <DataTables></DataTables>
+          </ScriptCard>
+        </div>
         <div id="purged-and-reprovision">
           <ScriptCard>
             <PurgedAndReprovision />
@@ -87,6 +97,12 @@ function App() {
         <div id="get-all-user-objects">
           <ScriptCard>
             <GetAllUserObjects />
+          </ScriptCard>
+        </div>
+
+        <div id="get-all-user-objects">
+          <ScriptCard>
+            <ADGroupDups></ADGroupDups>
           </ScriptCard>
         </div>
       </div>

@@ -35,13 +35,14 @@ function StartBar() {
                         {open && (
                             <MenuList
                                 style={{
+                                    position: 'absolute', // <- the key fix
                                     left: 0,
                                     top: '100%',
+                                    zIndex: 9999, // ensure it's above content
                                 }}
-                                onClick={() => setOpen(false)}
                             >
-                                <MenuListItem>Profile</MenuListItem>
-                                <MenuListItem>Settings</MenuListItem>
+                                <MenuListItem onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home Page</MenuListItem>
+                                <MenuListItem onClick={() => window.location.href = 'https://Baldwincepeda.me/'}>About</MenuListItem>
                                 <Separator />
 
                             </MenuList>
@@ -57,7 +58,7 @@ function StartBar() {
 
                 </Toolbar>
             </AppBar>
-        </Wrapper>
+        </Wrapper >
     );
 }
 

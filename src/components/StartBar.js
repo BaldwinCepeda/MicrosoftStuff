@@ -1,33 +1,42 @@
 // src/components/StartBar.js
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Button, MenuList, MenuListItem, Separator, TextInput } from 'react95';
+import {
+    AppBar,
+    Toolbar,
+    Button,
+    MenuList,
+    MenuListItem,
+    Separator,
+} from 'react95';
 import styled from 'styled-components';
+
 import logoIMG from '../assets/images/logo.ico';
-import nightWin from '../assets/images/flying_windows_100.ico'
+import nightWin from '../assets/images/flying_windows_100.ico';
+
 const Wrapper = styled.div`
   width: 100%;
-  position: fixed; /* Fix the StartBar at the top */
+  position: fixed;
   top: 0;
-  z-index: 1000; /* Ensure it stays above other components */
+  z-index: 1000;
 `;
 
-function StartBar() {
+function StartBar({ toggleDarkMode, isDarkMode }) {
     const [open, setOpen] = useState(false);
 
     return (
         <Wrapper>
             <AppBar>
                 <Toolbar style={{ justifyContent: 'space-between' }}>
+                    {/* Left side - menu button */}
                     <div style={{ position: 'relative', display: 'inline-block' }}>
                         <Button
                             onClick={() => setOpen(!open)}
                             active={open}
                             style={{ fontWeight: 'bold' }}
                         >
-
                             <img
                                 src={logoIMG}
-                                alt='logo'
+                                alt="logo"
                                 style={{ height: '20px', marginRight: 4 }}
                             />
                             Home
@@ -35,30 +44,42 @@ function StartBar() {
                         {open && (
                             <MenuList
                                 style={{
-                                    position: 'absolute', // <- the key fix
+                                    position: 'absolute',
                                     left: 0,
                                     top: '100%',
-                                    zIndex: 9999, // ensure it's above content
+                                    zIndex: 9999,
                                 }}
+                                onClick={() => setOpen(false)}
                             >
-                                <MenuListItem onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Home Page</MenuListItem>
-                                <MenuListItem onClick={() => window.location.href = 'https://Baldwincepeda.me/'}>About</MenuListItem>
+                                <MenuListItem onClick={() => window.location.href = 'https://microsoft-stuff.vercel.app/'}>
+                                    Home Page
+                                </MenuListItem>
+                                <MenuListItem onClick={() => window.location.href = 'https://baldwincepeda.me/'}>
+                                    About
+                                </MenuListItem>
                                 <Separator />
-
                             </MenuList>
                         )}
                     </div>
-                    <Button square>
+
+                    {/* Right side - dark mode toggle */}
+                    <Button
+                        square
+                        onClick={toggleDarkMode}
+                        title={`Toggle ${isDarkMode ? 'Light' : 'Dark'} Mode`}
+                    >
                         <img
                             src={nightWin}
-                            alt='nightWin'
-                            style={{ height: '20px' }}
+                            alt="Toggle Theme"
+                            style={{
+                                height: '20px',
+                                filter: isDarkMode ? 'invert(1)' : 'none',
+                            }}
                         />
                     </Button>
-
                 </Toolbar>
             </AppBar>
-        </Wrapper >
+        </Wrapper>
     );
 }
 
